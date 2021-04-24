@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Redirect, Route, Switch, withRouter } from 'react-router';
 import './App.css';
+import NavBar from './components/navbar/nabBar';
+import Home from './views/home';
+import ManageProducts from './views/manageProducts';
+import Data from "./initialData.json"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    // to populate some data
+    localStorage.setItem('data', JSON.stringify(Data.data))
+  }
+  
+
+  render() {
+    return (
+      <div className="App">
+        {/* common Navbar */}
+        <NavBar />
+
+        {/* Different routes */}
+        <div className="App-content">
+        <Switch>
+
+          <Route 
+            path="/home"
+            exact
+            default
+            render={(props) => <Home {...props}/>}/>
+
+          <Route 
+            path="/ManageProducts"
+            exact
+            render={(props) => <ManageProducts {...props}/>}/>
+
+          <Redirect to="/home" />
+
+        </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

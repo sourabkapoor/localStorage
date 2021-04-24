@@ -1,0 +1,52 @@
+.NavbarContainer {
+  background: white;
+  height: 70px;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  display: flex;
+  align-items: center;
+  padding: 0px 25px;
+  overflow: unset;
+
+  .brand-container {
+    height: 40px;
+  } 
+
+  .linksContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    left: 70px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 85px);
+
+    .leftSideLinks {
+      display: flex;
+      justify-content: flex-start;
+      width: 50%;
+      height: 100%;
+    }
+
+    .rightSideLinks {
+      display: flex;
+      justify-content: flex-end;
+      width: 50%;
+
+    }
+
+    .NavBarLinks {
+      margin-right: 1.4rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+    }
+  }
+}
+
+.ActiveClass {
+  border-bottom: 3px solid rgb(63, 194, 255) !important;
+}
