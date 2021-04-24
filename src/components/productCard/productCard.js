@@ -6,7 +6,7 @@ const ProductCard = (props) => {
   return (
     <div className="productContainer">
       <div className="product-Image">
-        {props.pic !== undefined ? <img className="productImage" src={props.pic} alt="product-image"></img> : null}
+        {props.pic !== undefined ? <img className="productImage" src={props.pic} alt="product"></img> : null}
       </div>
 
       <Row className="product-info">
